@@ -2,13 +2,13 @@ body{
     width : 100%;
     height: 100vh;
     margin: 0;
-    background-image:url("https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg");
+    background-image:url("https://images.unsplash.com/photo-1459755486867-b55449bb39ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80");
     font-family: sans-serif;
     padding: 20px;
 }
 hr{
     height: 3px;
-    background-color: rgb(85, 33, 14);
+    background-color: brown;
     border: 0px;
     margin: 0px;
 }
@@ -22,11 +22,15 @@ h1, h2{
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+.estd{
+    font-style: italic;
+    text-align: center;
+}
 .item p{
     display: inline-block;
 }
 
-.variant{
+.food{
     width: 60%;
     margin-left: 30px;
     margin-top: 5px;
@@ -44,13 +48,11 @@ h1, h2{
 
 
 }
-.estd{
-    font-style: italic;
-}
+
 .menu{
     width: 80%;
     background-color: burlywood;
-    margin: 0px auto 0px auto;
+    margin:auto;
     padding: 20px;
     max-width: 500px;
 
@@ -60,9 +62,9 @@ a:visited{
     color: black;
 }
 a:hover{
-    color: rgb(85, 33, 14);
+    color: brown;
 }
 footer{
     text-align: center;
-    /* margin-bottom: 0px; */
+   
 }
