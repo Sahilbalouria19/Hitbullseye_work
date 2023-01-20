@@ -52,4 +52,19 @@ font-size: 18px;
 .services:hover .dropdown{
     display: block;
 }
+input[type="checkbox"]{
+    display: none;
+}
 
+.hamburger {
+    display: none;
+}
+@media (max-width: 750px){
+    .menu{
+        display: none;
+        position: absolute
+    }
+    .hamburger{
+        display: block;
+    }    
+}
