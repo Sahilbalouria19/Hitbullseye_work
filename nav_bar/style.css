@@ -1,70 +1,111 @@
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-body{
-    font-family: sans-serif;
-}
-a{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: cursive;
+  }
+  a {
     text-decoration: none;
-}
-li{
+  }
+  li {
     list-style: none;
-}
-.logo{
+  }
+  /* LOGO */
+  .logo {
     font-size: 32px;
-}
-.navbar{
+  }
+  
+  /* NAVBAR STYLING STARTS */
+  .navbar {
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
-    padding:20px;
-    background-color:teal;
+    padding: 20px;
+    background-color: rgb(128,0,0,.7);
     color: white;
-}
-.nav-links a{
+  }
+  .nav-links a {
     color: white;
-}
-.menu{
-display: flex;
-gap: 1em;
-font-size: 18px;
-}
-.menu li:hover{
-    background-color: #4c9e9e;
+  }
+  
+  /* NAVBAR MENU */
+  .menu {
+    display: flex;
+    gap: 1em;
+    font-size: 18px;
+  }
+  .menu li:hover {
+    background-color: rgb(128,0,0,.4);
+    border-radius: 5px;
     transition: 0.3 ease;
-}
-.menu li{
+  }
+  .menu li {
     padding: 5px 14px;
-}
-.services{
+  }
+  
+  /* DROPDOWN MENU */
+  .services {
     position: relative;
-}
-
-.dropdown{
-    background-color: rgba(1,139,139,.9);
-    padding: 1en 0;
+  }
+  
+  .dropdown {
+    background-color: rgb(128,0,0,.7);
+    padding: 1em 0;
     display: none;
-    position: absolute;
-    border-radius: 9px;
-}
-.services:hover .dropdown{
+    position: absolute; /* With respect to parent*/
+    border-radius: 8px;
+    /* top: 35px; */
+  }
+  
+  .dropdown li {
+    padding: 0.5em 1em;
+    width: 8em;
+    text-align: center;
+  }
+  
+  .services:hover .dropdown {
     display: block;
-}
-input[type="checkbox"]{
+  }
+  
+  /* RESPONSIVE STYLING */
+  input[type="checkbox"] {
     display: none;
-}
-
-.hamburger {
+  }
+  
+  .hamburger {
+    font-size: 32px;
     display: none;
-}
-@media (max-width: 750px){
-    .menu{
-        display: none;
-        position: absolute
+  }
+  
+  /* APPLYING MEDIA QUERIES */
+  @media (max-width: 750px) {
+    .hamburger {
+      display: block;
     }
-    .hamburger{
-        display: block;
-    }    
-}
+    .menu {
+      display: none;
+      position: absolute;
+      background-color: teal;
+      left: 0;
+      right: 0;
+      text-align: center;
+      padding: 16px 0;
+    }
+    .menu li:hover {
+      background-color: #4c9e9e;
+      border-radius: 5px;
+      transition: 0.3 ease;
+    }
+    .menu li {
+      margin-top: 12px;
+    }
+    input[type="checkbox"]:checked ~ .menu {
+      display: block;
+    }
+    .dropdown {
+      left: 50%;
+      top: 30px;
+    }
+  }
