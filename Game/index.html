@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+  
+    <style>
+    html {
+        font-family: sans-serif;
+    }
+      
+    body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+    }
+
+
+    </style>
+</head>
+  
+<body>
+    <h1>Guess Karo Prize Jeeto!!!</h1>
+    <p>
+        Enter a lucky number between 1 - 100. 
+            See if you can guess it.
+      </p>
+
+      <p >
+        You Only have <span id="chance">10</span> chances.
+      </p>
+  
+    <div class="form">
+        <label for="guessField">Enter a guess: </label>
+        <input type = "text" 
+                 id = "guessField" 
+               class = "guessField">
+        <input type = "submit" 
+               value = "Submit your Number" 
+               class = "guessSubmit" 
+               id = "submitguess">
+    </div>
+  
+    <script type = "text/javascript">
+  
+      // random value generated
+      var y = Math.floor(Math.random() * 100 + 1);
+  
+      // counting the number of guesses
+      // made for correct Guess
+      var guess = 10;
+  
+      document.getElementById("submitguess").onclick = function(){
+        
+        guess--;
+        document.getElementById("chance").innerText = guess;
+        let x = document.getElementById("guessField").value;
+
+        if((x == y) && guess >0) {
+            alert("Congratulations!!! You won the Prize.");
+            reset();
+        }
+        else if((x > y) && guess >0){
+            alert("OOPS!! Try Smaller No");
+           
+        }
+        else if((x < y) && guess >0){
+            alert("OOPS!! Try Greater No");
+           
+        }
+        if(guess ==0){
+            alert("Sorry!! You Lost")
+            reset();
+        }
+        document.getElementById("guessField").value = " ";
+      }
+
+      function reset(){
+         document.getElementById("guessField").value = " ";
+         document.getElementById("chance").innerText = 10;
+      }
+    </script>
+</body>
+</html>
