@@ -1,87 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess The Number</title>
-  
-    <style>
-    html {
-        font-family: sans-serif;
-    }
-      
-    body {
-        width: 50%;
-        max-width: 800px;
-        min-width: 480px;
-        margin: 0 auto;
-    }
-
-
-    </style>
+    <link rel="stylesheet" href="./style.css">
+    <title>Guess karo prize jeeto</title>
 </head>
-  
 <body>
-    <h1>Guess Karo Prize Jeeto!!!</h1>
-    <p>
-        Enter a lucky number between 1 - 100. 
-            See if you can guess it.
-      </p>
-
-      <p >
-        You Only have <span id="chance">10</span> chances.
-      </p>
+    <div class="main">
+        <h1>Guess kar Prize Jeeto</h1>
+        <h2 id="chances">Chances left:</h2>
+        <label for="num">
+          <h3>Enter the number:</h3>
+          <input id="num2" type="text" />
+        </label>
+        <br /><br />
+        <button onclick="checkNum()" class="btn">Submit</button> <br>
+        <button onclick="newGame()" class="btn">Restart</button>
+        <p id="message"></p>
+        <h3>History</h3>
+        <ol id="history"></ol>
+      </div>
+      <script>
+        const chancesEl = document.getElementById("chances");
+        const messageEl = document.getElementById("message");
+        const historyEl = document.getElementById("history");
+        const num2El = document.getElementById("num2");
+        let chances = 10;
+        chancesEl.innerHTML = "Chances left: " + chances;
   
-    <div class="form">
-        <label for="guessField">Enter a guess: </label>
-        <input type = "text" 
-                 id = "guessField" 
-               class = "guessField">
-        <input type = "submit" 
-               value = "Submit your Number" 
-               class = "guessSubmit" 
-               id = "submitguess">
-    </div>
+        let num = Math.floor(Math.random() * 100 + 1);
   
-    <script type = "text/javascript">
-  
-      // random value generated
-      var y = Math.floor(Math.random() * 100 + 1);
-  
-      // counting the number of guesses
-      // made for correct Guess
-      var guess = 10;
-  
-      document.getElementById("submitguess").onclick = function(){
-        
-        guess--;
-        document.getElementById("chance").innerText = guess;
-        let x = document.getElementById("guessField").value;
-
-        if((x == y) && guess >0) {
-            alert("Congratulations!!! You won the Prize.");
-            reset();
+        function checkNum() {
+          let num2 = Number(num2El.value);
+          if (chances > 0) {
+            if (num2 === num) {
+              messageEl.innerHTML = "You guessed the correct number!!!";
+              chances -= 1;
+              let his = document.createElement("li");
+              his.innerText = `${num2} is correct answer`;
+              historyEl.appendChild(his);
+              chancesEl.innerHTML = "Chances left: " + chances;
+              alert("congratulations you won!!!");
+            } else if (num2 > num) {
+              messageEl.innerHTML = "Your guess is too high";
+              chances -= 1;
+              let his = document.createElement("li");
+              his.innerText = `${num2} is too high`;
+              historyEl.appendChild(his);
+              chancesEl.innerHTML = "Chances left: " + chances;
+              console.log(num);
+            } else {
+              messageEl.innerHTML = "your guess is too low";
+              chances -= 1;
+              let his = document.createElement("li");
+              his.innerText = `${num2} is too low`;
+              historyEl.appendChild(his);
+              chancesEl.innerHTML = "Chances left: " + chances;
+              console.log(num);
+            }
+          } else {
+            alert("all your chances are finished!!! new game will be started.");
+            newGame();
+          }
         }
-        else if((x > y) && guess >0){
-            alert("OOPS!! Try Smaller No");
-           
+        function newGame() {
+          num = Math.floor(Math.random() * 100 + 1);
+          chances = 10;
+          historyEl.innerHTML = "";
+          messageEl.innerHTML = "";
+          chancesEl.innerHTML = "Chances left: " + chances;
         }
-        else if((x < y) && guess >0){
-            alert("OOPS!! Try Greater No");
-           
-        }
-        if(guess ==0){
-            alert("Sorry!! You Lost")
-            reset();
-        }
-        document.getElementById("guessField").value = " ";
-      }
-
-      function reset(){
-         document.getElementById("guessField").value = " ";
-         document.getElementById("chance").innerText = 10;
-      }
-    </script>
+      </script>
 </body>
 </html>
