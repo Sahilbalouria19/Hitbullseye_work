@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Func from './Func';
-
+import nameComp from './nameComp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <h1>Hello World!!!</h1>
-    <Func></Func>
+    <name name="Sahil"></name>
   </React.StrictMode>
 );
 
