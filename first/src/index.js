@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Func from './Func';
-import nameComp from './nameComp';
+import Heading from './components/Heading';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <name name="Sahil"></name>
-  </React.StrictMode>
-);
+  <Heading>
+    <div>
+      <p>Hello</p>
+    </div>
+    </Heading>
+    );
 
